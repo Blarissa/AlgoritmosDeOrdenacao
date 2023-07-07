@@ -9,23 +9,25 @@ namespace LarissaAtvOrdenação
 {
     public class InsertionSort
     {
-        public static void Ordenar(int[] vetor)
-        {
-            int chave;       
-            
-            for(int i = 1; i < vetor.Length; i++)
+        public static int Ordenar(int[] vetor)
+        {       
+            int count = 0;
+
+            for (int i = 1; i < vetor.Length; i++)
             {
-                chave = vetor[i];
+                count ++;
+                int chave = vetor[i];
 
                 int j = i - 1;
 
-                while(j >= 0 && vetor[j] > chave ) {
-                    vetor[j + 1] = vetor[j]; 
+                while(j >= 0 && vetor[j] < chave ) {
+                    vetor[j + 1] = vetor[j];
                     j--;
                 }
 
                 vetor[j + 1] = chave;
-            }           
+            }
+            return count;
         }
     }
 }

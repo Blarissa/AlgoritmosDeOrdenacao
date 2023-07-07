@@ -8,11 +8,17 @@ namespace LarissaAtvOrdenação
 {
     public class MergeSort
     {
+        /// <summary>
+        /// Realiza a ordenação do vetor de inteiros.
+        /// </summary>
+        /// <param name="vetor">Vetor que vai ser ordenado. </param>
+        /// <param name="primeiro">Índice do primeiro numero do vetor.</param>
+        /// <param name="ultimo">Índice do último número do vetor.</param>
         public static void Ordenar(int[] vetor, int primeiro, int ultimo)
         {          
             if (primeiro < ultimo)
             {
-                int meio = (primeiro + ultimo) / 2;
+                int meio = primeiro + (ultimo - primeiro)/2;
                 
                 Ordenar(vetor, primeiro, meio);
                 Ordenar(vetor, meio + 1, ultimo); 
@@ -28,57 +34,55 @@ namespace LarissaAtvOrdenação
         /// <param name="primeiro"> Índice do primeiro elemento do vetor.</param>
         /// <param name="meio">Índice da metade do vetor. </param>
         /// <param name="ultimo">Índice do último elemento do vetor. </param>
-        private static void Combinar(int[] vetor, int primeiro, int meio, int ultimo)
+        private static void Combinar(int[] vetor, int primeiro, 
+            int meio, int ultimo)
         {
             int n1 = meio - primeiro + 1;
             int n2 = ultimo - meio;
-            int[] temp = new int[ultimo - primeiro + 1];
 
             int i, j;
 
-            int[] direito = new int[n1];
-            int[] esquerdo = new int[n2];
+            int[] esquerdo = new int[n1];
+            int[] direito = new int[n2];
 
             for (i = 0; i < n1; i++)
-                direito[i] = vetor[primeiro + i];
+                esquerdo[i] = vetor[primeiro + i];
 
             for (j = 0; j < n2; j++)
-                esquerdo[j] = vetor[meio + 1 + j];
+                direito[j] = vetor[meio + 1 + j];
 
-            i = 0; j = 0;
+            i = j = 0;
 
             int k = primeiro;
 
             while (i < n1 && j < n2)
             {
-                if (direito[i] <= esquerdo[j])
+                if (esquerdo[i] <= direito[j])
                 {
-                    vetor[k] = direito[i];
+                    vetor[k] = esquerdo[i];
                     i++;
                 }
                 else
                 {
-                    vetor[k] = esquerdo[j];
+                    vetor[k] = direito[j];
                     j++;
                 }
-
                 k++;
             }
 
             while (i < n1)
             {
-                vetor[k] = direito[i];
+                vetor[k] = esquerdo[i];
                 i++;
                 k++;
             }
 
-            while (i < n2)
+            while (j < n2)
             {
-                vetor[k] = esquerdo[j];
+                vetor[k] = direito[j];
                 j++;
                 k++;
             }
-
         }
     }
 }

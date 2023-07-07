@@ -9,94 +9,117 @@ class Program
     {
         //Random random = new Random();
         //List<int> numeros = new() { };
-        //numeros.AddRange(Enumerable.Range(0, 500));
+        //numeros.AddRange(Enumerable.Range(0, 100));
 
-        string url = "..//dados500.txt";
+        //string texto = "";
 
-        //ManipuladorDeArquivo.EscreveArquivo(url, texto);
-        int[] vetor = ManipuladorDeArquivo.LerArquivo(url);
+        //foreach(var n in numeros)
+        //    texto += n.ToString() + " ";
+
+
+        string url1 = "..//dados100.txt";
+        string url2 = "..//dados500.txt";
+
+        // ManipuladorDeArquivo.EscreveArquivo(url1, texto);
+
+        int[] vetor1 = ManipuladorDeArquivo.LerArquivo(url1);
+        int[] crescente1 = vetor1,
+              decrescente1 = Decrescente(vetor1),
+              aleatorio1 = Aleatorio(vetor1);
+
+        int[] vetor2 = ManipuladorDeArquivo.LerArquivo(url2);
+        int[] crescente2 = vetor2,
+              decrescente2 = Decrescente(vetor2),
+              aleatorio2 = Aleatorio(vetor2);
+
+       
+        string algoritmo;
 
         //---------------BUBBLE SORT---------------    
-        string algoritmo = "Bubble Sort";
-        
-        Console.WriteLine(algoritmo);
+        algoritmo = "Bubble Sort";
+        Console.WriteLine(algoritmo.ToUpper());
 
-        Testa(vetor, algoritmo);
+        // 100 elementos
+        ImprimeResultados(crescente1, decrescente1, 
+            aleatorio1, algoritmo, 100);
+
+        // 500 elementos
+        ImprimeResultados(crescente2, decrescente2, 
+            aleatorio2, algoritmo, 500);
+
 
         //---------------INSERTION SORT---------------
         algoritmo = "Insertion Sort";
         
-        Console.WriteLine(algoritmo);
-        
-        Testa(vetor, algoritmo);
+        Console.WriteLine(algoritmo.ToUpper());
+
+        // 100 elementos
+        ImprimeResultados(crescente1, decrescente1, 
+            aleatorio1, algoritmo, 100);
+
+        // 500 elementos
+        ImprimeResultados(crescente2, decrescente2,
+            aleatorio2, algoritmo, 500);
 
         //---------------MERGE SORT---------------
-        Console.WriteLine(algoritmo);
-        
         algoritmo = "Merge Sort";
-        
-        Testa(vetor, algoritmo);
 
-        //---------------QUICK SORT---------------
+        Console.WriteLine(algoritmo.ToUpper());
+
+        // 100 elementos
+        ImprimeResultados(crescente1, decrescente1, 
+            aleatorio1, algoritmo, 100);
+
+        // 500 elementos
+        ImprimeResultados(crescente2, decrescente2, 
+            aleatorio2, algoritmo, 500);
+
+        ////---------------QUICK SORT---------------
         algoritmo = "Quick Sort";
-        
-        Console.WriteLine(algoritmo);
-        
-        Testa(vetor, algoritmo);
+
+        Console.WriteLine(algoritmo.ToUpper());
+
+        // 100 elementos
+        ImprimeResultados(crescente1, decrescente1, 
+            aleatorio1, algoritmo, 100);
+
+        // 500 elementos
+        ImprimeResultados(crescente2, decrescente2, 
+            aleatorio2, algoritmo, 500);
 
         //---------------HEAP SORT---------------
         algoritmo = "Heap Sort";
-        
-        Console.WriteLine(algoritmo);
-        
-        Testa(vetor, algoritmo);
 
+        Console.WriteLine(algoritmo.ToUpper());
+
+        // 100 elementos
+        ImprimeResultados(crescente1, decrescente1, 
+            aleatorio1, algoritmo, 100);
+
+        // 500 elementos
+        ImprimeResultados(crescente2, decrescente2, 
+            aleatorio2, algoritmo, 500);
     }
 
-    private static void Testa(int[] vetor, string algoritmo)
+    private static void ImprimeResultados(int[] crescente, 
+        int[] decrescente, int[] aleatorio, string algoritmo, 
+        int elementos)
     {
-        int[] v1 = Crescente(vetor),
-              v2 = Decrescente(vetor),
-              v3 = Aleatorio(vetor);
+        TimeSpan tempo;
 
-        var stopwatch = new Stopwatch();
+        Console.WriteLine($"\n{elementos} elementos:");
 
-        stopwatch.Start();
-        BubbleSort.Ordenar(v1);
-        stopwatch.Stop();
+        //100 elementos      
+        tempo = Testar(crescente, algoritmo);
+        Console.WriteLine("Ordem crescente: " + tempo);
 
-        Console.WriteLine($"Tempo de execução em ms do {algoritmo} com " +
-                          $"vetor em ordem crescente: " +
-                          $"{stopwatch.Elapsed}");
+        tempo = Testar(decrescente, algoritmo);
+        Console.WriteLine("Ordem decrescente: " + tempo);
 
+        tempo = Testar(aleatorio, algoritmo);
+        Console.WriteLine("Ordem aleatória: " + tempo);
 
-        stopwatch.Reset();
-        stopwatch.Start();
-
-        BubbleSort.Ordenar(v2);
-
-        stopwatch.Stop();
-
-        Console.WriteLine($"Tempo de execução em ms {algoritmo} com " +
-                          $"vetor em ordem decrescente: " +
-                          $"{stopwatch.Elapsed}");
-
-        stopwatch.Reset();
-        stopwatch.Start();
-
-        BubbleSort.Ordenar(v3);
-
-        stopwatch.Stop();
-
-        Console.WriteLine($"Tempo de execução em ms do {algoritmo} com " +
-                          $"vetor em ordem aleatória: " +
-                          $"{stopwatch.Elapsed}\n");
-        stopwatch.Reset();
-    }
-
-    private static int[] Crescente(int[] vetor)
-    {
-        return vetor.OrderBy(x => x).ToArray();
+        Console.WriteLine();
     }
 
     private static int[] Decrescente(int[] vetor)
@@ -109,5 +132,62 @@ class Program
         Random random = new Random();
 
         return vetor.OrderBy(x => random.Next()).ToArray();
+    }
+
+    private static TimeSpan Testar(int[] v, string algoritmo)
+    {
+        var stopwatch = new Stopwatch();
+        TimeSpan tempo = TimeSpan.FromMilliseconds(0);
+        switch (algoritmo)
+        {
+            case "Insertion Sort":
+
+                stopwatch.Start();
+                InsertionSort.Ordenar(v);
+                stopwatch.Stop();
+
+                tempo = stopwatch.Elapsed;
+                break;
+
+            case "Bubble Sort":
+
+                stopwatch.Start();
+                BubbleSort.Ordenar(v);
+                stopwatch.Stop();
+
+                tempo = stopwatch.Elapsed;
+                break;
+
+            case "Merge Sort":
+
+                stopwatch.Start();
+                MergeSort.Ordenar(v, 0, v.Length - 1);
+                stopwatch.Stop();
+
+                tempo = stopwatch.Elapsed;
+                break;
+
+            case "Heap Sort":
+
+                stopwatch.Start();
+                HeapSort.Ordenar(v);
+                stopwatch.Stop();
+
+                tempo = stopwatch.Elapsed;
+                break;
+
+            case "Quick Sort":
+
+                stopwatch.Start();
+                QuickSort.Ordenar(v, 0, v.Length - 1);
+                stopwatch.Stop();
+
+                tempo = stopwatch.Elapsed;
+                break;
+        }
+
+        stopwatch.Reset();
+
+        return tempo;
     }
 }
