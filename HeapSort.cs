@@ -8,9 +8,11 @@ namespace LarissaAtvOrdenação
 {
     public class HeapSort
     {
+        public static int comparacoes = 0;
+
         public static void Ordenar(int[] vetor)
         {
-            int n = vetor.Length;
+            int n = vetor.Length; 
 
             ConstroiHeapMax(vetor,n);
 
@@ -19,7 +21,7 @@ namespace LarissaAtvOrdenação
                 Trocar(vetor, i, 0);
 
                 n --;
-                
+
                 RefazHeapMax(vetor, i, 0);
             }
         }
@@ -38,11 +40,14 @@ namespace LarissaAtvOrdenação
                 vetor[direito] > vetor[maior])
                 maior = direito;
 
+            comparacoes++;
+
             if (maior != i)
             {
                 Trocar(vetor, i, maior);
                 RefazHeapMax(vetor, n, maior);
             }
+            
         }
 
         private static void Trocar(int[] vetor, int i, int j)

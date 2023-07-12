@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 namespace LarissaAtvOrdenação
 {
     public class QuickSort
-    {              
+    {
+        public static int comparacoes = 0;
+
         public static void Ordenar(int[] vetor, int primeiro, int ultimo)
         {
             if (primeiro < ultimo)
@@ -25,13 +27,16 @@ namespace LarissaAtvOrdenação
             int x = vetor[ultimo];
             int i = primeiro - 1;
 
-            for(int j = primeiro; j < ultimo; j++)            
+            for (int j = primeiro; j < ultimo; j++)
+            {
+                comparacoes ++;
                 if (vetor[j] <= x)
                 {
                     i++;
                     Trocar(vetor, i, j);
                 }
-
+            }
+                
             Trocar(vetor, i + 1, ultimo);
 
             return i + 1;

@@ -8,6 +8,8 @@ namespace LarissaAtvOrdenação
 {
     public class MergeSort
     {
+        public static int comparacoes = 0;
+
         /// <summary>
         /// Realiza a ordenação do vetor de inteiros.
         /// </summary>
@@ -15,13 +17,13 @@ namespace LarissaAtvOrdenação
         /// <param name="primeiro">Índice do primeiro numero do vetor.</param>
         /// <param name="ultimo">Índice do último número do vetor.</param>
         public static void Ordenar(int[] vetor, int primeiro, int ultimo)
-        {          
+        {
             if (primeiro < ultimo)
             {
                 int meio = primeiro + (ultimo - primeiro)/2;
                 
-                Ordenar(vetor, primeiro, meio);
-                Ordenar(vetor, meio + 1, ultimo); 
+                Ordenar(vetor, primeiro, meio);              
+                Ordenar(vetor, meio + 1, ultimo);
                 
                 Combinar(vetor, primeiro, meio, ultimo);
             }
@@ -54,9 +56,11 @@ namespace LarissaAtvOrdenação
             i = j = 0;
 
             int k = primeiro;
-
+           
             while (i < n1 && j < n2)
             {
+                comparacoes++;
+
                 if (esquerdo[i] <= direito[j])
                 {
                     vetor[k] = esquerdo[i];
@@ -84,5 +88,6 @@ namespace LarissaAtvOrdenação
                 k++;
             }
         }
+
     }
 }
