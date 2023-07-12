@@ -7,98 +7,288 @@ class Program
 {
     static void Main()
     {
-        //Random random = new Random();
-        //List<int> numeros = new() { };
-        //numeros.AddRange(Enumerable.Range(0, 100));
+        //Iniciando vetores com itens de 100 a 200000
 
-        //string texto = "";
+        string url = "..//dados100.txt";
+        //EscreveArquivo(100, url);
+        int[] vetor1 = ManipuladorDeArquivo.LerArquivo(url);
 
-        //foreach(var n in numeros)
-        //    texto += n.ToString() + " ";
+        url = "..//dados500.txt";        
+        //EscreveArquivo(500, url);        
+        int[] vetor2 = ManipuladorDeArquivo.LerArquivo(url);
 
+        //url = "..//dados1000.txt";
+        //EscreveArquivo(1000, url);
+        int[] vetor3 = ManipuladorDeArquivo.LerArquivo(url);
 
-        string url1 = "..//dados100.txt";
-        string url2 = "..//dados500.txt";
+        url = "..//dados5000.txt";
+        //EscreveArquivo(5000, url);
+        int[] vetor4 = ManipuladorDeArquivo.LerArquivo(url);
+    
+        url = "..//dados10000.txt";
+        //EscreveArquivo(10000, url);
+        int[] vetor5 = ManipuladorDeArquivo.LerArquivo(url);
 
-        // ManipuladorDeArquivo.EscreveArquivo(url1, texto);
+        url = "..//dados30000.txt";
+        //EscreveArquivo(30000, url);
+        int[] vetor6 = ManipuladorDeArquivo.LerArquivo(url);
 
-        int[] vetor1 = ManipuladorDeArquivo.LerArquivo(url1);
-        int[] crescente1 = vetor1,
-              decrescente1 = Decrescente(vetor1),
-              aleatorio1 = Aleatorio(vetor1);
-
-        int[] vetor2 = ManipuladorDeArquivo.LerArquivo(url2);
-        int[] crescente2 = vetor2,
-              decrescente2 = Decrescente(vetor2),
-              aleatorio2 = Aleatorio(vetor2);
-
+        url = "..//dados50000.txt";
+        //EscreveArquivo(50000, url);
+        int[] vetor7 = ManipuladorDeArquivo.LerArquivo(url);
        
+        url = "..//dados100000.txt";
+        //EscreveArquivo(100000, url);
+        int[] vetor8 = ManipuladorDeArquivo.LerArquivo(url);
+
+        url = "..//dados150000.txt";
+        //EscreveArquivo(150000, url);
+        int[] vetor9 = ManipuladorDeArquivo.LerArquivo(url);
+
+        url = "..//dados200000.txt";
+        //EscreveArquivo(200000, url);
+        int[] vetor10 = ManipuladorDeArquivo.LerArquivo(url);
+
+
         string algoritmo;
 
         //---------------BUBBLE SORT---------------    
-        algoritmo = "Bubble Sort";
-        Console.WriteLine(algoritmo.ToUpper());
+        //algoritmo = "Bubble Sort";
+        //Console.WriteLine(algoritmo.ToUpper());
 
-        // 100 elementos
-        ImprimeResultados(crescente1, decrescente1, 
-            aleatorio1, algoritmo, 100);
+        //// 100 elementos
+        //ImprimeResultados(vetor1, Decrescente(vetor1),
+        //    Aleatorio(vetor1), algoritmo, 100);
 
-        // 500 elementos
-        ImprimeResultados(crescente2, decrescente2, 
-            aleatorio2, algoritmo, 500);
+        //// 500 elementos
+        //ImprimeResultados(vetor2, Decrescente(vetor2),
+        //    Aleatorio(vetor2), algoritmo, 500);
 
+        //// 1000 elementos
+        //ImprimeResultados(vetor3, Decrescente(vetor3),
+        //    Aleatorio(vetor3), algoritmo, 1000);
 
-        //---------------INSERTION SORT---------------
-        algoritmo = "Insertion Sort";
-        
-        Console.WriteLine(algoritmo.ToUpper());
+        //// 5000 elementos
+        //ImprimeResultados(vetor4, Decrescente(vetor4),
+        //    Aleatorio(vetor4), algoritmo, 5000);
 
-        // 100 elementos
-        ImprimeResultados(crescente1, decrescente1, 
-            aleatorio1, algoritmo, 100);
+        //// 10000 elementos
+        //ImprimeResultados(vetor5, Decrescente(vetor5), 
+        //    Aleatorio(vetor5), algoritmo, 10000);
 
-        // 500 elementos
-        ImprimeResultados(crescente2, decrescente2,
-            aleatorio2, algoritmo, 500);
+        //// 30000 elementos
+        //ImprimeResultados(vetor6, Decrescente(vetor6), 
+        //    Aleatorio(vetor6), algoritmo, 30000);
 
-        //---------------MERGE SORT---------------
-        algoritmo = "Merge Sort";
+        //// 50000 elementos
+        //ImprimeResultados(vetor7, Decrescente(vetor7),
+        //    Aleatorio(vetor7), algoritmo, 50000);
 
-        Console.WriteLine(algoritmo.ToUpper());
+        //// 100000 elementos
+        //ImprimeResultados(vetor8, Decrescente(vetor8),
+        //    Aleatorio(vetor8), algoritmo, 100000);
 
-        // 100 elementos
-        ImprimeResultados(crescente1, decrescente1, 
-            aleatorio1, algoritmo, 100);
+        //// 150000 elementos
+        //ImprimeResultados(vetor9, Decrescente(vetor9),
+        //    Aleatorio(vetor9), algoritmo, 150000);
 
-        // 500 elementos
-        ImprimeResultados(crescente2, decrescente2, 
-            aleatorio2, algoritmo, 500);
+        //// 200000 elementos
+        //ImprimeResultados(vetor10, Decrescente(vetor10), 
+        //    Aleatorio(vetor10), algoritmo, 200000);
 
-        ////---------------QUICK SORT---------------
-        algoritmo = "Quick Sort";
+        ////---------------INSERTION SORT---------------
+        //algoritmo = "Insertion Sort";
 
-        Console.WriteLine(algoritmo.ToUpper());
+        //Console.WriteLine(algoritmo.ToUpper());
 
-        // 100 elementos
-        ImprimeResultados(crescente1, decrescente1, 
-            aleatorio1, algoritmo, 100);
+        //Console.WriteLine();
+        //// 100 elementos
+        //ImprimeResultados(vetor1, Decrescente(vetor1),
+        //    Aleatorio(vetor1), algoritmo, 100);
 
-        // 500 elementos
-        ImprimeResultados(crescente2, decrescente2, 
-            aleatorio2, algoritmo, 500);
+        //// 500 elementos
+        //ImprimeResultados(vetor2, Decrescente(vetor2),
+        //    Aleatorio(vetor2), algoritmo, 500);
 
-        //---------------HEAP SORT---------------
-        algoritmo = "Heap Sort";
+        //// 1000 elementos
+        //ImprimeResultados(vetor3, Decrescente(vetor3),
+        //    Aleatorio(vetor3), algoritmo, 1000);
 
-        Console.WriteLine(algoritmo.ToUpper());
+        //// 5000 elementos
+        //ImprimeResultados(vetor4, Decrescente(vetor4),
+        //    Aleatorio(vetor4), algoritmo, 5000);
 
-        // 100 elementos
-        ImprimeResultados(crescente1, decrescente1, 
-            aleatorio1, algoritmo, 100);
+        //// 10000 elementos
+        //ImprimeResultados(vetor5, Decrescente(vetor5),
+        //    Aleatorio(vetor5), algoritmo, 10000);
 
-        // 500 elementos
-        ImprimeResultados(crescente2, decrescente2, 
-            aleatorio2, algoritmo, 500);
+        //// 30000 elementos
+        //ImprimeResultados(vetor6, Decrescente(vetor6),
+        //    Aleatorio(vetor6), algoritmo, 30000);
+
+        //// 50000 elementos
+        //ImprimeResultados(vetor7, Decrescente(vetor7),
+        //    Aleatorio(vetor7), algoritmo, 50000);
+
+        //// 100000 elementos
+        //ImprimeResultados(vetor8, Decrescente(vetor8),
+        //    Aleatorio(vetor8), algoritmo, 100000);
+
+        //// 150000 elementos
+        //ImprimeResultados(vetor9, Decrescente(vetor9),
+        //    Aleatorio(vetor9), algoritmo, 150000);
+
+        //// 200000 elementos
+        //ImprimeResultados(vetor10, Decrescente(vetor10),
+        //    Aleatorio(vetor10), algoritmo, 200000);
+
+        ////---------------MERGE SORT---------------
+        //algoritmo = "Merge Sort";
+
+        //Console.WriteLine(algoritmo.ToUpper());
+
+        //// 100 elementos
+        //ImprimeResultados(vetor1, Decrescente(vetor1),
+        //    Aleatorio(vetor1), algoritmo, 100);
+
+        //// 500 elementos
+        //ImprimeResultados(vetor2, Decrescente(vetor2),
+        //    Aleatorio(vetor2), algoritmo, 500);
+
+        //// 1000 elementos
+        //ImprimeResultados(vetor3, Decrescente(vetor3),
+        //    Aleatorio(vetor3), algoritmo, 1000);
+
+        //// 5000 elementos
+        //ImprimeResultados(vetor4, Decrescente(vetor4),
+        //    Aleatorio(vetor4), algoritmo, 5000);
+
+        //// 10000 elementos
+        //ImprimeResultados(vetor5, Decrescente(vetor5),
+        //    Aleatorio(vetor5), algoritmo, 10000);
+
+        //// 30000 elementos
+        //ImprimeResultados(vetor6, Decrescente(vetor6),
+        //    Aleatorio(vetor6), algoritmo, 30000);
+
+        //// 50000 elementos
+        //ImprimeResultados(vetor7, Decrescente(vetor7),
+        //    Aleatorio(vetor7), algoritmo, 50000);
+
+        //// 100000 elementos
+        //ImprimeResultados(vetor8, Decrescente(vetor8),
+        //    Aleatorio(vetor8), algoritmo, 100000);
+
+        //// 150000 elementos
+        //ImprimeResultados(vetor9, Decrescente(vetor9),
+        //    Aleatorio(vetor9), algoritmo, 150000);
+
+        //// 200000 elementos
+        //ImprimeResultados(vetor10, Decrescente(vetor10),
+        //    Aleatorio(vetor10), algoritmo, 200000);
+
+        //////---------------QUICK SORT---------------
+        //algoritmo = "Quick Sort";
+
+        //Console.WriteLine(algoritmo.ToUpper());
+
+        //// 100 elementos
+        //ImprimeResultados(vetor1, Decrescente(vetor1),
+        //    Aleatorio(vetor1), algoritmo, 100);
+
+        //// 500 elementos
+        //ImprimeResultados(vetor2, Decrescente(vetor2),
+        //    Aleatorio(vetor2), algoritmo, 500);
+
+        //// 1000 elementos
+        //ImprimeResultados(vetor3, Decrescente(vetor3),
+        //    Aleatorio(vetor3), algoritmo, 1000);
+
+        //// 5000 elementos
+        //ImprimeResultados(vetor4, Decrescente(vetor4),
+        //    Aleatorio(vetor4), algoritmo, 5000);
+
+        //// 10000 elementos
+        //ImprimeResultados(vetor5, Decrescente(vetor5),
+        //    Aleatorio(vetor5), algoritmo, 10000);
+
+        //// 30000 elementos
+        //ImprimeResultados(vetor6, Decrescente(vetor6),
+        //    Aleatorio(vetor6), algoritmo, 30000);
+
+        //// 50000 elementos
+        //ImprimeResultados(vetor7, Decrescente(vetor7),
+        //    Aleatorio(vetor7), algoritmo, 50000);
+
+        //// 100000 elementos
+        //ImprimeResultados(vetor8, Decrescente(vetor8),
+        //    Aleatorio(vetor8), algoritmo, 100000);
+
+        //// 150000 elementos
+        //ImprimeResultados(vetor9, Decrescente(vetor9),
+        //    Aleatorio(vetor9), algoritmo, 150000);
+
+        //// 200000 elementos
+        //ImprimeResultados(vetor10, Decrescente(vetor10),
+        //    Aleatorio(vetor10), algoritmo, 200000);
+
+        ////---------------HEAP SORT---------------
+        //algoritmo = "Heap Sort";
+
+        //Console.WriteLine(algoritmo.ToUpper());
+
+        //// 100 elementos
+        //ImprimeResultados(vetor1, Decrescente(vetor1),
+        //    Aleatorio(vetor1), algoritmo, 100);
+
+        //// 500 elementos
+        //ImprimeResultados(vetor2, Decrescente(vetor2),
+        //    Aleatorio(vetor2), algoritmo, 500);
+
+        //// 1000 elementos
+        //ImprimeResultados(vetor3, Decrescente(vetor3),
+        //    Aleatorio(vetor3), algoritmo, 1000);
+
+        //// 5000 elementos
+        //ImprimeResultados(vetor4, Decrescente(vetor4),
+        //    Aleatorio(vetor4), algoritmo, 5000);
+
+        //// 10000 elementos
+        //ImprimeResultados(vetor5, Decrescente(vetor5),
+        //    Aleatorio(vetor5), algoritmo, 10000);
+
+        //// 30000 elementos
+        //ImprimeResultados(vetor6, Decrescente(vetor6),
+        //    Aleatorio(vetor6), algoritmo, 30000);
+
+        //// 50000 elementos
+        //ImprimeResultados(vetor7, Decrescente(vetor7),
+        //    Aleatorio(vetor7), algoritmo, 50000);
+
+        //// 100000 elementos
+        //ImprimeResultados(vetor8, Decrescente(vetor8),
+        //    Aleatorio(vetor8), algoritmo, 100000);
+
+        //// 150000 elementos
+        //ImprimeResultados(vetor9, Decrescente(vetor9),
+        //    Aleatorio(vetor9), algoritmo, 150000);
+
+        //// 200000 elementos
+        //ImprimeResultados(vetor10, Decrescente(vetor10),
+        //    Aleatorio(vetor10), algoritmo, 200000);
+    }
+
+    private static void EscreveArquivo(int i, string url)
+    {
+        Random random = new Random();
+        List<int> numeros = new() { };
+        numeros.AddRange(Enumerable.Range(0, i));
+
+        string texto = "";
+        foreach (var n in numeros)
+            texto += n.ToString() + " ";
+
+        ManipuladorDeArquivo.EscreveArquivo(url, texto);
     }
 
     private static void ImprimeResultados(int[] crescente, 
@@ -136,8 +326,10 @@ class Program
 
     private static TimeSpan Testar(int[] v, string algoritmo)
     {
+        int comparacoes = 0;
         var stopwatch = new Stopwatch();
         TimeSpan tempo = TimeSpan.FromMilliseconds(0);
+
         switch (algoritmo)
         {
             case "Insertion Sort":
@@ -147,15 +339,19 @@ class Program
                 stopwatch.Stop();
 
                 tempo = stopwatch.Elapsed;
+
+                Console.WriteLine("Comparacões: " + InsertionSort.comparacoes);
                 break;
 
             case "Bubble Sort":
 
                 stopwatch.Start();
                 BubbleSort.Ordenar(v);
-                stopwatch.Stop();
+                stopwatch.Stop();                
 
                 tempo = stopwatch.Elapsed;
+
+                Console.WriteLine("Comparacões: "+ BubbleSort.comparacoes);
                 break;
 
             case "Merge Sort":
@@ -165,6 +361,8 @@ class Program
                 stopwatch.Stop();
 
                 tempo = stopwatch.Elapsed;
+
+                Console.WriteLine("Comparacões: " + MergeSort.comparacoes);
                 break;
 
             case "Heap Sort":
@@ -174,6 +372,8 @@ class Program
                 stopwatch.Stop();
 
                 tempo = stopwatch.Elapsed;
+
+                Console.WriteLine("Comparacões: " + HeapSort.comparacoes);
                 break;
 
             case "Quick Sort":
@@ -183,6 +383,8 @@ class Program
                 stopwatch.Stop();
 
                 tempo = stopwatch.Elapsed;
+
+                Console.WriteLine("Comparacões: " + QuickSort.comparacoes);
                 break;
         }
 
